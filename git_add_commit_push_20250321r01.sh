@@ -16,11 +16,11 @@ else
 	exit
 fi
 
-echo "export const version = '$2';" > src/version.js
+echo "export const version = '$2';" > version.js
 
 git add .
 git commit -m $3
 git push origin "$1"
 
-rm -f src/version.js
+rm -f version.js
 
