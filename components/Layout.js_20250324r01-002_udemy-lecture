@@ -1,12 +1,11 @@
 import Head from "next/head";
-import styles from "./layout.module.css";
 
 const name = "Hakuto"
 export const siteTitle = "Next.js blog"
 
 function Layout({ children }) {
     return (
-        <div className={styles.container}>
+        <div>
             <Head>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
