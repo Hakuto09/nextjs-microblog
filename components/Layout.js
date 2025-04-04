@@ -1,5 +1,6 @@
 import Head from "next/head";
 import styles from "./layout.module.css";
+import utilStyles from "../styles/utils.module.css";
 
 const name = "Hakuto"
 export const siteTitle = "Next.js blog"
@@ -10,8 +11,8 @@ function Layout({ children }) {
             <Head>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <header>
-                <img src="/images/profile.png" />
+            <header className={styles.header}>
+                <img src="/images/profile.png" className={utilStyles.borderCircle}/>
                 <h1>{name}</h1>
             </header>
             <main>{children}</main>
