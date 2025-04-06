@@ -7,7 +7,7 @@ import utilStyle from "../styles/utils.module.css"
 import { getPostsData } from "../lib/posts";
 
 
-// SSG (静的サイトジェネレータ) の場合 : 初回の一回のみ実行。
+// SSGの場合
 export async function getStaticProps() {
   const func = 'getStaticProps';
 
@@ -20,20 +20,6 @@ export async function getStaticProps() {
     },
   };
 }
-
-// // SSR (サーバサイドレンダリング) の場合：ユーザーリクエスト毎に実行。
-// export async function getServerSideProps() {
-//   const func = 'getServerSideProps';
-
-//   const allPostsData = getPostsData();  // id, titl, date, thumbnail
-//   console.log(func, ' allPostsData ', allPostsData);
-
-//   return {
-//     props: {
-//       allPostsData,
-//     },
-//   };
-// }
 
 
 export default function Home({ allPostsData }) {
