@@ -1,0 +1,41 @@
+import Layout from "@/components/Layout";
+import { getAllPostIds, getPostData } from "@/lib/posts";
+
+
+export async function getStaticPaths() {
+//    const func = window.location.pathname.split("/").pop();
+	const func = 'getStaticPaths';
+
+	const paths = getAllPostIds();
+
+	return {
+		paths,
+		fallback: false,
+	}
+}
+
+// SSG (静的サイトジェネレータ) の場合 : 初回の一回のみ実行。
+export async function getStaticProps({ params }) {
+	const func = 'getStaticProps';
+
+	const postData = await getPostData(params.id);  // id, blogContentHTML, title, date, thumbnail
+	console.log(func, ' postData ', postData);
+
+	return {
+		props: {
+			postData,
+		},
+	};
+}
+
+export default function Post({ postData }) {
+	return <Layout>
+		{postData.title}
+		<br />
+		{postData.date}
+		<br />
+		{postData.blogContentHTML}
+	</Layout>
+}
+
+
