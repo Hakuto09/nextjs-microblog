@@ -37,8 +37,8 @@ export async function getStaticProps() {
 
 
 export default function Home({ allPostsData }) {
-  return <Layout>
-    <a href="https://www.hakuto.co.jp/">Hakuto site (test)</a>
+  return <Layout home>
+    {/*<a href="https://www.hakuto.co.jp/">Hakuto site (test)</a>*/}
     <section className={utilStyle.headingMd}>
       <p>
         フルスタックエンジニアです。

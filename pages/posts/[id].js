@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import { getAllPostIds, getPostData } from "@/lib/posts";
-import utilStyle from "../../styles/utils.module.css"
+import utilStyle from "../../styles/utils.module.css";
+import { useRouter } from "next/router";
 
 
 export async function getStaticPaths() {
@@ -12,12 +13,20 @@ export async function getStaticPaths() {
 	return {
 		paths,
 		fallback: false,
+//		fallback: true,
 	}
 }
 
 // SSG (静的サイトジェネレータ) の場合 : 初回の一回のみ実行。
 export async function getStaticProps({ params }) {
 	const func = 'getStaticProps';
+
+/*
+	const router = useRouter();
+	if (router.isFallback) {
+		return <div>読み込み中...</div>
+	}
+*/
 
 	const postData = await getPostData(params.id);  // id, blogContentHTML, title, date, thumbnail
 	console.log(func, ' postData ', postData);
